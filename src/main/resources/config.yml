@@ -1,0 +1,74 @@
+# ============================================================
+#  FurnaceAll - Configuration
+#  Couleurs : &a &b &c ... et hex &#RRGGBB
+# ============================================================
+
+# Mode par défaut de /furnace : "stack" (tout le stack) ou "one" (1 unité)
+# Le joueur peut forcer avec /furnace stack ou /furnace one
+default-mode: stack
+
+# Si true, /furnace et /furnaceall partagent le même délai
+shared-cooldown: false
+
+# Items qui ne seront jamais cuits (noms de Material)
+blacklist:
+  - CHORUS_FRUIT
+
+# Délai (en SECONDES) pour les joueurs qui n'ont AUCUN grade ci-dessous
+default-cooldown:
+  furnace: 7200
+  furnaceall: 7200
+
+# ------------------------------------------------------------
+# Grades / paliers de délai (en secondes)
+# Permission à donner via LuckPerms : furnace.group.<nom>
+# Exemple : /lp group vip permission set furnace.group.vip true
+# Si un joueur a plusieurs paliers, le délai le plus court est utilisé.
+# 0 = pas de délai.
+# Tu peux ajouter autant de grades que tu veux.
+# ------------------------------------------------------------
+groups:
+  vip:
+    furnace: 3600        # 1 heure
+    furnaceall: 3600
+  mvp:
+    furnace: 1800        # 30 minutes
+    furnaceall: 1800
+  mvp+:
+    furnace: 900         # 15 minutes
+    furnaceall: 900
+  admin:
+    furnace: 0
+    furnaceall: 0
+
+# Format d'affichage du temps restant
+time-format:
+  hours: "{h}h"
+  minutes: "{m}m"
+  seconds: "{s}s"
+  separator: " "
+
+# Sons (mettre enabled: false pour désactiver). Noms au format Minecraft.
+sound:
+  enabled: true
+  name: "block.furnace.fire_crackle"
+  volume: 1.0
+  pitch: 1.0
+
+# ------------------------------------------------------------
+# Messages
+# Placeholders : {time} {count} {items} {prefix}
+# ------------------------------------------------------------
+messages:
+  prefix: "&8[&6Four&8] &r"
+  no-permission: "{prefix}&cTu n'as pas la permission d'utiliser cette commande."
+  only-players: "&cCette commande est réservée aux joueurs."
+  cooldown: "{prefix}&cTu dois attendre encore &e{time} &cavant de réutiliser cette commande."
+  no-item-in-hand: "{prefix}&cTu n'as rien dans la main."
+  not-cookable: "{prefix}&cCet item ne peut pas être cuit."
+  nothing-to-cook: "{prefix}&cTu n'as rien à cuire dans ton inventaire."
+  cooked-hand: "{prefix}&aTu as cuit &b{count} &aitem(s) !"
+  cooked-all: "{prefix}&aTu as cuit &b{count} &aitem(s) de ton inventaire !"
+  inventory-full: "{prefix}&eTon inventaire est plein, certains items ont été jetés au sol."
+  reloaded: "{prefix}&aConfiguration rechargée."
+  usage: "{prefix}&cUsage : /furnace [stack|one]"

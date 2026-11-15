@@ -1,0 +1,25 @@
+name: FurnaceAll
+version: '${project.version}'
+main: fr.furnaceall.FurnaceAllPlugin
+api-version: '26.2'
+description: Cuit les items de l'inventaire avec des délais par grade (LuckPerms)
+commands:
+  furnace:
+    description: Cuit l'item dans votre main
+    usage: /furnace [stack|one|reload]
+  furnaceall:
+    description: Cuit tout ce qui est cuisable dans votre inventaire
+    usage: /furnaceall
+permissions:
+  furnace.use:
+    description: Utiliser /furnace
+    default: op
+  furnace.all:
+    description: Utiliser /furnaceall
+    default: op
+  furnace.bypass:
+    description: Ignore les délais
+    default: op
+  furnace.reload:
+    description: Recharger la config
+    default: op
